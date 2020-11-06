@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders App 1`] = `
+<DocumentFragment>
+  <nav>
+    <h1>
+      Create a Candidate
+    </h1>
+  </nav>
+  <div>
+    <form>
+      <input
+        name=""
+        placeholder="Name"
+        type="text"
+      />
+      <input
+        name=""
+        placeholder="Party"
+        type="text"
+      />
+      <input
+        name="1"
+        placeholder="BirthYear"
+        type="text"
+      />
+      <input
+        name="false"
+        placeholder="Winning"
+        type="text"
+      />
+      <button>
+        Create Candidate!
+      </button>
+    </form>
+  </div>
+</DocumentFragment>
+`;
