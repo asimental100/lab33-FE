@@ -1,13 +1,12 @@
 /* eslint-disable no-undef */
 const webpack = require('webpack');
 const path = require('path');
-const HtmlPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 
 const env = Object.entries({ ...require('dotenv').config(), ...process.env })
   .reduce((acc, [key, value]) => {
-    acc[key] = value;
+    acc[`process.env.${key}`] = value;
     return acc;
   }, {});
 
@@ -15,16 +14,16 @@ const env = Object.entries({ ...require('dotenv').config(), ...process.env })
 module.exports = {
   entry: './src/index.js',
   output: {
-    filename: 'bundle.[hash].js',
+    filename: 'bundle.js',
     path: path.resolve(__dirname, './dist'),
     publicPath: '/'
   },
   devServer: {
+    contentBase: path.join(__dirname, 'public'),
     port: 7891,
     historyApiFallback: true
   },
   plugins: [
-    new HtmlPlugin({ template: './src/index.html' }),
     new CleanWebpackPlugin(),
     new webpack.EnvironmentPlugin(env),
     new CopyPlugin({
