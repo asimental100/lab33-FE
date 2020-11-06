@@ -1,5 +1,16 @@
+/* eslint-disable max-len */
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { Header } from '../header/Header';
+import { CandidatePage } from '../../pages/CandidatePage';
 
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <Router>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={CandidatePage} />
+      </Switch>
+    </Router>
+  );
 }
